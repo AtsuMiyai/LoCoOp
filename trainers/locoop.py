@@ -23,7 +23,7 @@ softmax = nn.Softmax(dim=1).cuda()
 
 def entropy_select_topk(p, top_k, label, num_of_local_feature):
     """
-    Extract non-Top-K reginos and calculate entropy.
+    Extract non-Top-K regions and calculate entropy.
     """
     label_repeat = label.repeat_interleave(num_of_local_feature)
     p = F.softmax(p, dim=-1)

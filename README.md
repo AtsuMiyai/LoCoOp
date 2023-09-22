@@ -1,4 +1,4 @@
-# LoCoOp: Few-Shot Out-of-Distribution Detection via Prompt Learning
+# LoCoOp: Few-Shot Out-of-Distribution Detection via Prompt Learning (NeurIPS2023)
 ![Arch_figure](figure/framework.png)
 This repository contains PyTorch implementation for our paper: [LoCoOp: Few-Shot Out-of-Distribution Detection via Prompt Learning](https://arxiv.org/abs/2306.01293)
 
@@ -6,13 +6,16 @@ This repository contains PyTorch implementation for our paper: [LoCoOp: Few-Shot
 We introduce a novel OOD detection approach called **Lo**cal regularized **Co**ntext **Op**timization (**LoCoOp**), which performs OOD regularization that utilizes the portions of CLIP local features as OOD features during training. CLIP's local features have a lot of ID-irrelevant nuisances (e.g., backgrounds), and by learning to push them away from the ID class text embeddings, we can remove the nuisances in the ID class text embeddings and enhance the separation between ID and OOD. Experiments on the large-scale ImageNet OOD detection benchmarks demonstrate the superiority of our LoCoOp over zero-shot, fully supervised detection methods and prompt learning methods. Notably, even in one shot setting -- just one label per class, LoCoOp outperforms existing zero-shot and fully supervised detection methods.
 
 ## News
-[2023/08/13] We publish the code for trainining and evaluation.
+[2023/09/22] We publish the code for training and evaluation.   
+[2023/06/02] We make this repository public.
 
 
 ## Requirement
 ### Package
-All required packages are the same as [CoOp](https://github.com/KaiyangZhou/CoOp).
-This code is built on top of the awesome toolbox [Dassl.pytorch](https://github.com/KaiyangZhou/Dassl.pytorch) so you need to install the `dassl` environment first. Simply follow the instructions described [here](https://github.com/KaiyangZhou/Dassl.pytorch#installation) to install `dassl` as well as PyTorch. After that, run `pip install -r requirements.txt` under `LoCoOp/` to install a few more packages required by [CLIP](https://github.com/openai/CLIP) (this should be done when `dassl` is activated). Then, you are ready to go.
+Our experiments are conducted with Python 3.8 and Pytorch 1.8.1.
+
+All required packages are based on [CoOp](https://github.com/KaiyangZhou/CoOp) (for training) and [MCM](https://github.com/deeplearning-wisc/MCM/blob/main/utils/plot_util.py) (for evaluation).
+This code is built on top of the awesome toolbox [Dassl.pytorch](https://github.com/KaiyangZhou/Dassl.pytorch) so you need to install the `dassl` environment first. Simply follow the instructions described [here](https://github.com/KaiyangZhou/Dassl.pytorch#installation) to install `dassl` as well as PyTorch. After that, run `pip install -r requirements.txt` under `LoCoOp/` to install a few more packages required by [CLIP](https://github.com/openai/CLIP) and [MCM](https://github.com/deeplearning-wisc/MCM/blob/main/utils/plot_util.py) (this should be done when `dassl` is activated).
 
 
 ### Datasets
@@ -25,7 +28,7 @@ We use ImageNet-1K as the ID dataset.
 - Download the dataset from the [official website](https://image-net.org/index.php) and extract the training and validation sets to `$DATA/imagenet/images`.
 
 #### Out-of-distribution Datasets
-We use the large-scale OOD datasets [iNaturalist](https://arxiv.org/abs/1707.06642), [SUN](https://vision.princeton.edu/projects/2010/SUN/), [Places](https://arxiv.org/abs/1610.02055), and [Texture](https://arxiv.org/abs/1311.3618) curated by [Huang et al. 2021](https://arxiv.org/abs/2105.01879). We follow instruction from the this [repository](https://github.com/deeplearning-wisc/large_scale_ood#out-of-distribution-dataset) to download the subsampled datasets.
+We use the large-scale OOD datasets [iNaturalist](https://arxiv.org/abs/1707.06642), [SUN](https://vision.princeton.edu/projects/2010/SUN/), [Places](https://arxiv.org/abs/1610.02055), and [Texture](https://arxiv.org/abs/1311.3618) curated by [Huang et al. 2021](https://arxiv.org/abs/2105.01879). We follow instructions from this [repository](https://github.com/deeplearning-wisc/large_scale_ood#out-of-distribution-dataset) to download the subsampled datasets.
 
 The overall file structure is as follows:
 ```
@@ -43,7 +46,7 @@ LoCoOp
 ```
 
 ## Pre-trained Models
-We share the 16-shot pre-trained models for LoCoOp. Please refer the [url](https://drive.google.com/drive/folders/1QX0z15cq5K2G7mKUEKitsz3P94UBMqPk?usp=sharing) to download.
+We share the 16-shot pre-trained models for LoCoOp. Please download them via the [url](https://drive.google.com/drive/folders/1QX0z15cq5K2G7mKUEKitsz3P94UBMqPk?usp=sharing).
 
 ## Quick Start
 ### 1. Training
@@ -62,23 +65,23 @@ CUDA_VISIBLE_DEVICES=0 bash scripts/locoop/train.sh data imagenet vit_b16_ep50 e
 ### 2. Inference 
 The inference script is in `LoCoOp/scripts/locoop/eval.sh`.
 
-If you evaluate the model of seed1 created by the above training code, please conduct the below command.
+If you evaluate the model of seed1 created by the above 16-shot training code, please conduct the below command.
 ```eval
 CUDA_VISIBLE_DEVICES=0 bash scripts/locoop/eval.sh data imagenet vit_b16_ep50 1 output/imagenet/LoCoOp/vit_b16_ep50_16shots/nctx16_cscFalse_ctpend/seed1
 ```
 The average scores of three seeds (1,2,3) are reported in the paper.
 
 ### 3. Visualization
-The code for visualization results of extracted OOD regions is in `LoCoOp/scripts/locoop/demo_visualization.sh`.
+The code for the visualization of extracted OOD regions is in `LoCoOp/scripts/locoop/demo_visualization.sh`.
 
-e.g., image_path=data/imagenet/images/train/n02364673/n02364673_330.JPEG, label=338
+e.g., image_path=data/imagenet/images/train/n04325704/n04325704_219.JPEG, label=824
 ```
-sh scripts/locoop/demo_visualization.sh /home/miyai/LoCoOp/data imagenet vit_b16_ep50 output/imagenet/LoCoOp/vit_b16_ep50_16shots/nctx16_cscFalse_ctpend/seed1 data/imagenet/images/train/n02364673/n02364673_330.JPEG 338
+sh scripts/locoop/demo_visualization.sh /home/miyai/LoCoOp/data imagenet vit_b16_ep50 output/imagenet/LoCoOp/vit_b16_ep50_16shots/nctx16_cscFalse_ctpend/seed1 data/imagenet/images/train/n04325704/n04325704_219.JPEG 824
 ```
 The visualization result is in `visualization/`.
 
 The visualization examples are below:
-![Arch_figure](figure/visualization_examples.png)
+![Visualization_figure](figure/visualization_examples.png)
 
 ## Acknowledgement
 We adopt these codes to create this repository.
@@ -88,17 +91,17 @@ We adopt these codes to create this repository.
 * [Zero-Shot In-Distribution Detection in Multi-Object Settings Using Vision-Language Foundation Models](https://arxiv.org/abs/2304.04521), arXiv, 2023
 
 ## Citaiton
-If you find our work interesting or use our code/models, please cite:
+If you find our work interesting or use our code/models, please consider citing:
 ```bibtex
-@article{miyai2023locoop,
+@inproceedings{miyai2023locoop,
   title={LoCoOp: Few-Shot Out-of-Distribution Detection via Prompt Learning},
   author={Miyai, Atsuyuki and Yu, Qing and Irie, Go and Aizawa, Kiyoharu},
-  journal={arXiv preprint arXiv:2306.01293},
+  booktitle={Thirty-Seventh Conference on Neural Information Processing Systems},
   year={2023}
 }
 ```
 
-Besides, when you use GL-MCM (test-time detection method), please cite:
+Besides, when you use GL-MCM (test-time detection method), please consider citing:
 ```bibtex
 @article{miyai2023zero,
   title={Zero-Shot In-Distribution Detection in Multi-Object Settings Using Vision-Language Foundation Models},
