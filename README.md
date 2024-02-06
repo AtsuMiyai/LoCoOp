@@ -26,6 +26,8 @@ We use ImageNet-1K as the ID dataset.
 - Create a folder named `imagenet/` under `data` folder.
 - Create `images/` under `imagenet/`.
 - Download the dataset from the [official website](https://image-net.org/index.php) and extract the training and validation sets to `$DATA/imagenet/images`.
+  
+Besides, we need to put `imagenet-classes.txt` under`imagenet/data` folder. This .txt file can be downloaded via https://drive.google.com/file/d/1-61f_ol79pViBFDG_IDlUQSwoLcn2XXF/view
 
 #### Out-of-distribution Datasets
 We use the large-scale OOD datasets [iNaturalist](https://arxiv.org/abs/1707.06642), [SUN](https://vision.princeton.edu/projects/2010/SUN/), [Places](https://arxiv.org/abs/1610.02055), and [Texture](https://arxiv.org/abs/1311.3618) curated by [Huang et al. 2021](https://arxiv.org/abs/2105.01879). We follow instructions from this [repository](https://github.com/deeplearning-wisc/large_scale_ood#out-of-distribution-dataset) to download the subsampled datasets.
@@ -35,6 +37,7 @@ The overall file structure is as follows:
 LoCoOp
 |-- data
     |-- imagenet
+        |-- imagenet-classes.txt
         |-- images/
             |--train/ # contains 1,000 folders like n01440764, n01443537, etc.
             |-- val/ # contains 1,000 folders like n01440764, n01443537, etc.
