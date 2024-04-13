@@ -95,15 +95,15 @@ We adopt these codes to create this repository.
 * [Zero-Shot In-Distribution Detection in Multi-Object Settings Using Vision-Language Foundation Models](https://arxiv.org/abs/2304.04521), arXiv, 2023
 
 
-## Subsequent work for parameter-efficient OOD detection methods
-Parameter-efficient OOD detection is a promising research direction.
+## Subsequent work for Parameter-Efficient OOD detection methods
+Parameter-efficient OOD detection is a promising research direction, and LoCoOp can be a baseline approach for this field.  
 To catch up with this field, we summarized the subsequent work for CLIP-based efficient OOD detection methods. (Last update: 2024.04.14)  
 
 1. [![](https://img.shields.io/badge/IJCV'23-MCM+CoOp-blue)](https://link.springer.com/article/10.1007/s11263-023-01895-7), [code](https://github.com/deeplearning-wisc/MCM)
     > This is the journal extension version of [MCM](https://proceedings.neurips.cc/paper_files/paper/2022/hash/e43a33994a28f746dcfd53eb51ed3c2d-Abstract-Conference.html). This paper examines the effectiveness of MCM with vanilla prompt learning methods (e.g., CoOp and CoCoOp).
 2. [![](https://img.shields.io/badge/ICLR'24-LSN-pink)](https://openreview.net/pdf?id=nanyAujl6e)
    > LSN learns negative prompts for OOD detection, which is an orthogonal approach to LoCoOp and [can be combined with LoCoOp](https://openreview.net/forum?id=nanyAujl6e&referrer=%5Bthe%20profile%20of%20Jun%20Nie%5D(%2Fprofile%3Fid%3D~Jun_Nie1)).
-3. [![](https://img.shields.io/badge/CVPR'24-IDPrompt-green)](https://arxiv.org/abs/2311.15243)  
+3. [![](https://img.shields.io/badge/CVPR'24-IDPrompt-green)](https://arxiv.org/abs/2311.15243), [code](https://github.com/ycfate/ID-like)
    > IDPrompt leverages ID-like outliers in the ID image to further leverage the capabilities of CLIP for OOD detection, which is a similar concept to LoCoOp.
 4. [![](https://img.shields.io/badge/arXiv'23-LSA-orange)](https://arxiv.org/abs/2312.01732), [code](https://github.com/LuFan31/LSA)
    > LSA first tackled [full-spectrum OOD detection](https://arxiv.org/abs/2204.05306) in the context of CLIP-based parameter-efficient OOD detection.
