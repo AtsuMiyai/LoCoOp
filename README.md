@@ -110,6 +110,7 @@ To catch up with this field, we summarized the subsequent work for CLIP-based ef
 5. [![](https://img.shields.io/badge/CVPR'24-NegPrompt-green)](https://arxiv.org/abs/2404.03248), [code](https://github.com/mala-lab/negprompt)
    > NegPrompt learns a set of negative prompts with only ID data. Also, this paper tackled a novel promising problem setting called Open-vocabulary OOD detection. 
 
+If I missed some work, feel free to contact me by opening an issue! 
 
 ## Citaiton
 If you find our work interesting or use our code/models, please consider citing:
