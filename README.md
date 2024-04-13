@@ -96,7 +96,7 @@ We adopt these codes to create this repository.
 
 
 ## Subsequent work for parameter-efficient OOD detection methods
-The parameter-efficient OOD detection is a promising research direction.
+Parameter-efficient OOD detection is a promising research direction.
 To catch up with this field, we summarized the subsequent work for CLIP-based efficient OOD detection methods. (Last update: 2024.04.14)  
 
 1. [![](https://img.shields.io/badge/IJCV'23-MCM+CoOp-blue)](https://link.springer.com/article/10.1007/s11263-023-01895-7), [code](https://github.com/deeplearning-wisc/MCM)
