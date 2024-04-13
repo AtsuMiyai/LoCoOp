@@ -6,16 +6,17 @@ This repository contains PyTorch implementation for our paper: [LoCoOp: Few-Shot
 We introduce a novel OOD detection approach called **Lo**cal regularized **Co**ntext **Op**timization (**LoCoOp**), which performs OOD regularization that utilizes the portions of CLIP local features as OOD features during training. CLIP's local features have a lot of ID-irrelevant nuisances (e.g., backgrounds), and by learning to push them away from the ID class text embeddings, we can remove the nuisances in the ID class text embeddings and enhance the separation between ID and OOD. Experiments on the large-scale ImageNet OOD detection benchmarks demonstrate the superiority of our LoCoOp over zero-shot, fully supervised detection methods and prompt learning methods. Notably, even in one shot setting -- just one label per class, LoCoOp outperforms existing zero-shot and fully supervised detection methods.
 
 ## News
-[2023/09/22] We publish the code for training and evaluation.   
-[2023/06/02] We make this repository public.
+2024/04/14: We added related work for CLIP-based parameter-efficient OOD detection so that we can easily follow this research area! 
+[2023/09/22: We publish the code for training and evaluation.   
+2023/06/02: We make this repository public.
 
 
 ## Requirement
 ### Package
 Our experiments are conducted with Python 3.8 and Pytorch 1.8.1.
 
-All required packages are based on [CoOp](https://github.com/KaiyangZhou/CoOp) (for training) and [MCM](https://github.com/deeplearning-wisc/MCM/blob/main/utils/plot_util.py) (for evaluation).
-This code is built on top of the awesome toolbox [Dassl.pytorch](https://github.com/KaiyangZhou/Dassl.pytorch) so you need to install the `dassl` environment first. Simply follow the instructions described [here](https://github.com/KaiyangZhou/Dassl.pytorch#installation) to install `dassl` as well as PyTorch. After that, run `pip install -r requirements.txt` under `LoCoOp/` to install a few more packages required by [CLIP](https://github.com/openai/CLIP) and [MCM](https://github.com/deeplearning-wisc/MCM/blob/main/utils/plot_util.py) (this should be done when `dassl` is activated).
+All required packages are based on [CoOp](https://github.com/KaiyangZhou/CoOp) (for training) and [MCM](https://github.com/deeplearning-wisc/MCM) (for evaluation).
+This code is built on top of the awesome toolbox [Dassl.pytorch](https://github.com/KaiyangZhou/Dassl.pytorch) so you need to install the `dassl` environment first. Simply follow the instructions described [here](https://github.com/KaiyangZhou/Dassl.pytorch#installation) to install `dassl` as well as PyTorch. After that, run `pip install -r requirements.txt` under `LoCoOp/` to install a few more packages required by [CLIP](https://github.com/openai/CLIP) and [MCM](https://github.com/deeplearning-wisc/MCM) (this should be done when `dassl` is activated).
 
 
 ### Datasets
@@ -92,6 +93,23 @@ We adopt these codes to create this repository.
 * [Learning to Prompt for Vision-Language Models](https://arxiv.org/abs/2109.01134), IJCV, 2022.
 * [Delving into Out-of-Distribution Detection with Vision-Language Representations](https://proceedings.neurips.cc/paper_files/paper/2022/hash/e43a33994a28f746dcfd53eb51ed3c2d-Abstract-Conference.html), in NeurIPS, 2022
 * [Zero-Shot In-Distribution Detection in Multi-Object Settings Using Vision-Language Foundation Models](https://arxiv.org/abs/2304.04521), arXiv, 2023
+
+
+## Subsequent work for parameter-efficient OOD detection methods
+The parameter-efficient OOD detection is a promising research direction.
+To catch up with this field, we summarized the subsequent work for CLIP-based efficient OOD detection methods. (Last update: 2024.04.14)  
+
+1. [![](https://img.shields.io/badge/IJCV'23-MCM+CoOp-blue)](https://link.springer.com/article/10.1007/s11263-023-01895-7), [code](https://github.com/deeplearning-wisc/MCM)
+    > This is the journal extension version of [MCM](https://proceedings.neurips.cc/paper_files/paper/2022/hash/e43a33994a28f746dcfd53eb51ed3c2d-Abstract-Conference.html). This paper examines the effectiveness of MCM with vanilla prompt learning methods (e.g., CoOp and CoCoOp).
+2. [![](https://img.shields.io/badge/ICLR'24-LSN-pink)](https://openreview.net/pdf?id=nanyAujl6e)
+   > LSN learns negative prompts for OOD detection, which is an orthogonal approach to LoCoOp and [can be combined with LoCoOp](https://openreview.net/forum?id=nanyAujl6e&referrer=%5Bthe%20profile%20of%20Jun%20Nie%5D(%2Fprofile%3Fid%3D~Jun_Nie1)).
+3. [![](https://img.shields.io/badge/CVPR'24-IDPrompt-green)](https://arxiv.org/abs/2311.15243)  
+   > IDPrompt leverages ID-like outliers in the ID image to further leverage the capabilities of CLIP for OOD detection, which is a similar concept to LoCoOp.
+4. [![](https://img.shields.io/badge/arXiv'23-LSA-orange)](https://arxiv.org/abs/2312.01732), [code](https://github.com/LuFan31/LSA)
+   > LSA first tackled [full-spectrum OOD detection](https://arxiv.org/abs/2204.05306) in the context of CLIP-based parameter-efficient OOD detection.
+5. [![](https://img.shields.io/badge/CVPR'24-NegPrompt-green)](https://arxiv.org/abs/2404.03248), [code](https://github.com/mala-lab/negprompt)
+   > NegPrompt learns a set of negative prompts with only ID data. Also, this paper tackled a novel promising problem setting called Open-vocabulary OOD detection. 
+
 
 ## Citaiton
 If you find our work interesting or use our code/models, please consider citing:
