@@ -100,7 +100,8 @@ Parameter-efficient OOD detection is a promising research direction, and LoCoOp 
 To catch up with this field, we summarized the subsequent work for CLIP-based efficient OOD detection methods. (Last update: 2024.04.14)  
 
 1. [![](https://img.shields.io/badge/IJCV'23-MCM+CoOp-blue)](https://link.springer.com/article/10.1007/s11263-023-01895-7), [code](https://github.com/deeplearning-wisc/MCM)
-    > This is the journal extension version of [MCM](https://proceedings.neurips.cc/paper_files/paper/2022/hash/e43a33994a28f746dcfd53eb51ed3c2d-Abstract-Conference.html). This paper examines the effectiveness of MCM with vanilla prompt learning methods (e.g., CoOp and CoCoOp).
+    > This is the journal extension version of [MCM](https://proceedings.neurips.cc/paper_files/paper/2022/hash/e43a33994a28f746dcfd53eb51ed3c2d-Abstract-Conference.html). This paper examines the effectiveness of MCM with vanilla prompt learning methods (e.g., CoOp).
+    > To implement this, you can utilize our LoCoOp's code following [the minor change](https://github.com/AtsuMiyai/LoCoOp/issues/2#issuecomment-1923390359).
 2. [![](https://img.shields.io/badge/ICLR'24-LSN-pink)](https://openreview.net/pdf?id=nanyAujl6e)
    > LSN learns negative prompts for OOD detection, which is an orthogonal approach to LoCoOp and [can be combined with LoCoOp](https://openreview.net/forum?id=nanyAujl6e&referrer=%5Bthe%20profile%20of%20Jun%20Nie%5D(%2Fprofile%3Fid%3D~Jun_Nie1)).
 3. [![](https://img.shields.io/badge/CVPR'24-IDPrompt-green)](https://arxiv.org/abs/2311.15243), [code](https://github.com/ycfate/ID-like)
