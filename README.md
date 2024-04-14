@@ -6,8 +6,8 @@ This repository contains PyTorch implementation for our paper: [LoCoOp: Few-Shot
 We introduce a novel OOD detection approach called **Lo**cal regularized **Co**ntext **Op**timization (**LoCoOp**), which performs OOD regularization that utilizes the portions of CLIP local features as OOD features during training. CLIP's local features have a lot of ID-irrelevant nuisances (e.g., backgrounds), and by learning to push them away from the ID class text embeddings, we can remove the nuisances in the ID class text embeddings and enhance the separation between ID and OOD. Experiments on the large-scale ImageNet OOD detection benchmarks demonstrate the superiority of our LoCoOp over zero-shot, fully supervised detection methods and prompt learning methods. Notably, even in one shot setting -- just one label per class, LoCoOp outperforms existing zero-shot and fully supervised detection methods.
 
 ## News
-2024/04/14: We added related work for CLIP-based parameter-efficient OOD detection so that we can easily follow this research area! 
-[2023/09/22: We publish the code for training and evaluation.   
+2024/04/14: We added related work for CLIP-based parameter-efficient OOD detection so that we can easily follow this research area!     
+2023/09/22: We publish the code for training and evaluation.   
 2023/06/02: We make this repository public.
 
 
