@@ -1,14 +1,18 @@
 # LoCoOp: Few-Shot Out-of-Distribution Detection via Prompt Learning (NeurIPS2023)
 
-
-|😀 We kindly ask followers to observe the following two points: (i) Clarify whether MCM or GL-MCM was used at the time of inference. This is very important to see the performance of LoCoOp alone. (ii) When testing outside of the ImageNet OOD Benchmark, change the value of the training "-topk" argument and report the value in the paper. The current config is for ImageNet-1K. |
-|-----------------------------------------|
-
 ![Arch_figure](figure/framework.png)
 This repository contains PyTorch implementation for our paper: [LoCoOp: Few-Shot Out-of-Distribution Detection via Prompt Learning](https://arxiv.org/abs/2306.01293)
 
 ### Abstract
 We introduce a novel OOD detection approach called **Lo**cal regularized **Co**ntext **Op**timization (**LoCoOp**), which performs OOD regularization that utilizes the portions of CLIP local features as OOD features during training. CLIP's local features have a lot of ID-irrelevant nuisances (e.g., backgrounds), and by learning to push them away from the ID class text embeddings, we can remove the nuisances in the ID class text embeddings and enhance the separation between ID and OOD. Experiments on the large-scale ImageNet OOD detection benchmarks demonstrate the superiority of our LoCoOp over zero-shot, fully supervised detection methods and prompt learning methods. Notably, even in one shot setting -- just one label per class, LoCoOp outperforms existing zero-shot and fully supervised detection methods.
+
+## Requests to Followers 🤝
+We kindly ask followers to observe the following two points:     
+- 1. **Clarify whether MCM or GL-MCM was used at the time of inference.** This is very important to see the performance of LoCoOp alone.     
+- 2. When testing outside of the ImageNet OOD Benchmark, **change the value of the training "-topk" argument and report the value in the paper.** The current config is for ImageNet-1K.
+ 
+Let's build a better Few-Shot OOD Detection community together!
+
 
 ## News
 2024/04/14: We added related work for CLIP-based parameter-efficient OOD detection so that we can easily follow this research area!     
