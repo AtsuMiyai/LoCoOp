@@ -15,9 +15,9 @@ Let's build a better Few-Shot OOD Detection community together!
 
 
 ## News
-2024/04/14: We added related work for CLIP-based parameter-efficient OOD detection so that we can easily follow this research area!     
-2023/09/22: We publish the code for training and evaluation.   
-2023/06/02: We make this repository public.
+- 2024/04/14: We added related work for CLIP-based parameter-efficient OOD detection so that we can easily follow this research area!     
+- 2023/09/22: We publish the code for training and evaluation.   
+- 2023/06/02: We make this repository public.
 
 
 ## Requirement
