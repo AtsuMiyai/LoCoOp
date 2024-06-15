@@ -9,7 +9,7 @@ We introduce a novel OOD detection approach called **Lo**cal regularized **Co**n
 ## Requests to Followers 🤝
 We kindly ask followers to observe the following two points:     
 - 1. **Clarify whether MCM or GL-MCM was used at the time of inference.** This is very important to see the performance of LoCoOp alone.     
-- 2. When testing outside of the ImageNet OOD Benchmark, **change the value of the training "-topk" and "-lambda" argument and report the value in the paper.** The current config is for ImageNet-1K.
+- 2. When testing other than ImageNet OOD Benchmark, **change the value of the training "-topk" and "-lambda" argument and report the value in the paper.** The current config is for ImageNet-1K.
  
 Let's build a better Few-Shot OOD Detection community together!
 
