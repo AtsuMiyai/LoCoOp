@@ -1,7 +1,7 @@
 # LoCoOp: Few-Shot Out-of-Distribution Detection via Prompt Learning (NeurIPS2023)
 
 ## Generalized OOD Detection v2
-|📣 We have published our new survey on OOD detection and related tasks in Visio Language Model era! Check out [our new paper](https://arxiv.org/abs/2407.21794)!|
+|📣 We have published our new survey on OOD detection and related tasks in Vision Language Model era! Check out [our new paper](https://arxiv.org/abs/2407.21794)!|
 |-----------------------------------------|
 
 
