@@ -140,10 +140,10 @@ If you find our work interesting or use our code/models, please consider citing:
 
 Besides, when you use GL-MCM (test-time detection method), please consider citing:
 ```bibtex
-@article{miyai2023zero,
-  title={Zero-Shot In-Distribution Detection in Multi-Object Settings Using Vision-Language Foundation Models},
+@article{miyai2025zero,
+  title={GL-MCM: Global and Local Maximum Concept Matching for Zero-Shot Out-of-Distribution Detection},
   author={Miyai, Atsuyuki and Yu, Qing and Irie, Go and Aizawa, Kiyoharu},
-  journal={arXiv preprint arXiv:2304.04521},
-  year={2023}
+  journal={IJCV},
+  year={2025}
 }
 ```
